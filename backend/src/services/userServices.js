@@ -16,6 +16,9 @@ const createUser = (userData) => {
 
   const invalidName = validateName(username);
   if(invalidName.error) return invalidName;
+
+  const newUser = Users.createUser(userData);
+  return { newUser };
 };
 
 module.exports = {
