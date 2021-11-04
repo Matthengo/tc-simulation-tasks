@@ -12,7 +12,14 @@ const EMAIL_MUST_UNIQUE = {
   }
 }
 
+const INCORRECT_DATA = {
+  error: {
+    status: 401,
+    message: 'Wrong username or email'
+  }
+}
 module.exports = {
   EMAIL_MUST_VALID,
   EMAIL_MUST_UNIQUE,
+  INCORRECT_DATA,
 };
