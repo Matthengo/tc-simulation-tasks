@@ -8,7 +8,8 @@ const JWTValidation = require('../middlewares/JWTValidation');
 const router = express.Router();
 
 router
-  .post('/', JWTValidation, taskControllers.createTask);
+  .post('/', JWTValidation, taskControllers.createTask)
+  .put('/:id', JWTValidation, taskControllers.updateTask);
 
 router.use(middlewareError);
 

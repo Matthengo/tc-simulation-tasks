@@ -20,6 +20,24 @@ const createTask = async (req, res, next) => {
   }
 }
 
+const updateTask = async (req, res, next) => {
+  try {
+    const taskData = {
+      ...req.body,
+      ...req.params,
+    };
+
+    const updatedTask = await taskServices.updateTask(taskData);
+    if(updatedTask.error) return next(updatedTask.error);
+
+    res.status(200).json(updatedTask);
+  } catch (error) {
+    console.log(error);
+    next(500);
+  }
+}
+
 module.exports = {
   createTask,
+  updateTask,
 }

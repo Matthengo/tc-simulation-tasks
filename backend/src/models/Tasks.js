@@ -21,7 +21,24 @@ const getTaskById = (id) => {
     .then((db) => db.collection('tasks').findOne(new ObjectId(id)));
 }
 
+const updateTask = (taskData) => {
+  const date = new Date();
+  const { id, taskName } = taskData;
+  return connection().then((db) => db.collection('tasks').updateOne(
+    { _id:  ObjectId(id)},
+    {
+      $set: {
+        taskName,
+        timestamp: {
+          updated: date,
+        },
+      },
+    },
+  ));
+}
+
 module.exports = {
   createTask,
   getTaskById,
+  updateTask,
 }
