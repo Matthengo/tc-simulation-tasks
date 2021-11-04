@@ -37,7 +37,17 @@ const updateTask = async (req, res, next) => {
   }
 }
 
+const deleteTask = async (req, res, next) => {
+  try {
+    await taskServices.deleteTask(req.params.id);
+  } catch (error) {
+    console.log(error);
+    next(500);
+  }
+}
+
 module.exports = {
   createTask,
   updateTask,
+  deleteTask,
 }

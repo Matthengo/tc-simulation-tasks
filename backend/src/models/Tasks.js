@@ -37,8 +37,15 @@ const updateTask = (taskData) => {
   ));
 }
 
+const deleteTask = (id) => 
+  connection()
+    .then((db) => db.collection('tasks').deleteOne(
+      { _id: ObjectId(id) },
+    ));
+
 module.exports = {
   createTask,
   getTaskById,
   updateTask,
+  deleteTask,
 }

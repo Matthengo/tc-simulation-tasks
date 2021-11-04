@@ -20,7 +20,12 @@ const updateTask = async (taskData) => {
   return { message: 'Task updated' };
 }
 
+const deleteTask = async (id) => {
+  await Tasks.deleteTask(id);
+}
+
 module.exports = {
   createTask,
   updateTask,
+  deleteTask,
 }

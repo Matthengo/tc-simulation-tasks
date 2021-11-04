@@ -10,7 +10,8 @@ const router = express.Router();
 
 router
   .post('/', JWTValidation, taskControllers.createTask)
-  .put('/:id', JWTValidation, checkUserAuthorization, taskControllers.updateTask);
+  .put('/:id', JWTValidation, checkUserAuthorization, taskControllers.updateTask)
+  .delete('/:id', JWTValidation, checkUserAuthorization, taskControllers.deleteTask);
 
 router.use(middlewareError);
 
