@@ -5,6 +5,14 @@ const EMAIL_MUST_VALID = {
   }
 };
 
+const EMAIL_MUST_UNIQUE = {
+  error: {
+    status: 409,
+    message: 'Email already registered'
+  }
+}
+
 module.exports = {
   EMAIL_MUST_VALID,
+  EMAIL_MUST_UNIQUE,
 };
