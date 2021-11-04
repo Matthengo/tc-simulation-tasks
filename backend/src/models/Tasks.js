@@ -2,7 +2,7 @@ const connection = require('../db/connection');
 
 const createTask = (taskData) => {
   const date = new Date();
-  connection().then((db) => db.collection('tasks').insertOne({
+  return connection().then((db) => db.collection('tasks').insertOne({
     ...taskData,
     timestamp: {
       created: date,
