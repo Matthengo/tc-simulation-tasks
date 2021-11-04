@@ -40,9 +40,14 @@ const deleteTask = (id) =>
       { _id: ObjectId(id) },
     ));
 
+const getAllUserTasks = (userId) =>
+  connection()
+    .then((db) => db.collection('tasks').find({ userId: ObjectId(userId) }).toArray());
+  
 module.exports = {
   createTask,
   getTaskById,
   updateTask,
   deleteTask,
+  getAllUserTasks,
 }

@@ -47,8 +47,20 @@ const deleteTask = async (req, res, next) => {
   }
 }
 
+const getAllUserTasks = async (req, res, next) => {
+  try {
+    const { _id } = req.user;
+    const allTasks = await taskServices.getAllUserTasks(_id);
+    res.status(200).json(allTasks);
+  } catch (error) {
+    console.log(error);
+    next(500)
+  }
+}
+
 module.exports = {
   createTask,
   updateTask,
   deleteTask,
+  getAllUserTasks,
 }
