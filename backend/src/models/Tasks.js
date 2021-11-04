@@ -5,11 +5,10 @@ const createTask = (taskData) => {
   const date = new Date();
   return connection().then((db) => db.collection('tasks').insertOne({
     ...taskData,
-    timestamp: {
-      created: date,
-      updated: date,
+    createdAt: date,
+    updatedAt: date,
     }
-  }));
+  ));
 };
 
 const getTaskById = (id) => {
@@ -29,9 +28,7 @@ const updateTask = (taskData) => {
     {
       $set: {
         taskName,
-        timestamp: {
-          updated: date,
-        },
+        updatedAt: date,
       },
     },
   ));
