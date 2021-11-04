@@ -12,11 +12,8 @@ const createTask = async (taskData) => {
 }
 
 const updateTask = async (taskData) => {
-  const { id, taskName } = taskData;
+  const { taskName } = taskData;
   if(!taskName) return dataIsRequired('taskName');
-
-  // const foundTask = await Tasks.getTaskById(id);
-  // if(!foundTask) return TASK_NOT_FOUND;
 
   await Tasks.updateTask(taskData);
 
