@@ -4,13 +4,13 @@ const taskControllers = require('../controllers/taskControllers');
 const middlewareError = require('../middlewares/error');
 
 const JWTValidation = require('../middlewares/JWTValidation');
-const checkUserLoggedIn = require('../middlewares/checkUserLoggedIn')
+const checkUserAuthorization = require('../middlewares/checkUserAuthorization')
 
 const router = express.Router();
 
 router
   .post('/', JWTValidation, taskControllers.createTask)
-  .put('/:id', JWTValidation, checkUserLoggedIn, taskControllers.updateTask);
+  .put('/:id', JWTValidation, checkUserAuthorization, taskControllers.updateTask);
 
 router.use(middlewareError);
 
