@@ -17,3 +17,7 @@ const createTask = async (req, res, next) => {
     next(500)
   }
 }
+
+module.exports = {
+  createTask,
+}
