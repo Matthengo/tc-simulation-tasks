@@ -40,6 +40,7 @@ const updateTask = async (req, res, next) => {
 const deleteTask = async (req, res, next) => {
   try {
     await taskServices.deleteTask(req.params.id);
+    res.status(204).send();
   } catch (error) {
     console.log(error);
     next(500);
