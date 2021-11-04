@@ -18,8 +18,16 @@ const INCORRECT_DATA = {
     message: 'Wrong username or email'
   }
 }
+
+const TASK_NOT_FOUND = {
+  error: {
+    status: 404,
+    message: 'Task not found'
+  }
+}
 module.exports = {
   EMAIL_MUST_VALID,
   EMAIL_MUST_UNIQUE,
   INCORRECT_DATA,
+  TASK_NOT_FOUND,
 };
