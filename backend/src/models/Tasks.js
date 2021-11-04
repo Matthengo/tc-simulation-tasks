@@ -22,12 +22,13 @@ const getTaskById = (id) => {
 
 const updateTask = (taskData) => {
   const date = new Date();
-  const { id, taskName } = taskData;
+  const { id, taskName, status } = taskData;
   return connection().then((db) => db.collection('tasks').updateOne(
     { _id:  ObjectId(id)},
     {
       $set: {
         taskName,
+        status,
         updatedAt: date,
       },
     },
