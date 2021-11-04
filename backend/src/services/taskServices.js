@@ -6,10 +6,9 @@ const createTask = async (taskData) => {
   if(!taskName) return dataIsRequired('taskName');
 
   const { insertedId } = await Tasks.createTask(taskData);
-  // TODO
-  // const foundTask = await Tasks.getTaskById(insertedId);
-  // Change to foundTask
-  return { ...taskData };
+  const foundTask = await Tasks.getTaskById(insertedId);
+  
+  return { ...foundTask };
 }
 
 module.exports = {

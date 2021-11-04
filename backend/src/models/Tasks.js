@@ -1,4 +1,5 @@
 const connection = require('../db/connection');
+const { ObjectId } = require('mongodb');
 
 const createTask = (taskData) => {
   const date = new Date();
@@ -11,6 +12,16 @@ const createTask = (taskData) => {
   }));
 };
 
+const getTaskById = (id) => {
+  if (!ObjectId.isValid(id)) {
+    return null;
+  }
+
+  return connection()
+    .then((db) => db.collection('tasks').findOne(new ObjectId(id)));
+}
+
 module.exports = {
   createTask,
+  getTaskById,
 }
