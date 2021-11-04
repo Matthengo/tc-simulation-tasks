@@ -11,5 +11,7 @@ const login = async (userData) => {
 
   if(!hasCorrectPassword(userFound.password, password)) return INCORRECT_DATA;
 
-  return { message: 'Logging In' };
+  return { ...userFound };
 }
+
+module.exports = { login }
