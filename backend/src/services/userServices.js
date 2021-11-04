@@ -22,6 +22,13 @@ const createUser = async (userData) => {
   return { };
 };
 
+const getUser = async (userEmail) => {
+  const userFound = await Users.getUser(userEmail);
+  if (!userFound) return false;
+
+  return true
+}
+
 module.exports = {
   createUser,
 }
