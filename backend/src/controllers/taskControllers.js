@@ -1,3 +1,5 @@
+const taskServices = require('../services/taskServices');
+
 const createTask = async (req, res, next) => {
   try {
     const TASK_STATUS = 'pending';
@@ -7,7 +9,7 @@ const createTask = async (req, res, next) => {
     taskData.status = TASK_STATUS;
     taskData.userId = _id;
 
-    const newTask = taskData // await taskServices.createTask(taskData);
+    const newTask = await taskServices.createTask(taskData);
     if(newTask.error) return next(newTask.error);
 
     res.status(201).json(newTask);
