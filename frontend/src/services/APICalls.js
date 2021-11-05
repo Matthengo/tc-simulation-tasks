@@ -6,6 +6,11 @@ const api = axios.create({
 });
 
 export const registerUser = (userData) => 
-  api.post( '/user', userData)
+  api.post('/user', userData)
+    .then(({ data, status }) => ({ data, status }))
+    .catch(({response: { data, status }}) => ({ data, status }));
+
+export const login = (userData) =>
+  api.post('/login', userData)
     .then(({ data, status }) => ({ data, status }))
     .catch(({response: { data, status }}) => ({ data, status }));

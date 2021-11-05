@@ -1,27 +1,11 @@
-import React, { useState } from 'react'
-import { Button, Container, Stack, TextField, Typography } from '@mui/material';
+import React from 'react'
+import { Button, Container, Stack, Typography } from '@mui/material';
 // import PropTypes from 'prop-types'
 import { registerUser } from '../services/APICalls';
 import { useHistory } from 'react-router';
+import { useTextField } from '../hooks/useTextField';
 
 function RegisterPage() {
-  const useTextField = ({ type, label }) => {
-    // SOURCE https://stackoverflow.com/questions/55757761/handle-an-input-with-react-hooks
-    const [value, setValue] = useState("");
-    const textField = (
-      <TextField 
-        id="standard-basic" 
-        label={ label }
-        variant="standard"
-        type={ type }
-        value= { value }
-        onChange={ ({ target: { value } }) => setValue(value) }
-      />
-    )
-
-    return [value, textField]
-  }
-  
   const [username, nameInput] = useTextField({ type: 'text', label: 'Nome' });
   const [email, emailInput] = useTextField({ type: 'text', label: 'Email' });
   const [password, passwordInput] = useTextField({ type: 'password', label: 'Senha' });
