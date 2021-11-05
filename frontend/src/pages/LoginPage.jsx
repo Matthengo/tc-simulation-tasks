@@ -40,7 +40,7 @@ function LoginPage() {
             spacing={0.5}
           >
             <Typography>Não tem uma conta? </Typography>
-            <Button variant="text">Crie uma</Button>
+            <Button variant="text" onClick={ () => {history.push('/')} }>Crie uma</Button>
           </Stack>
         </Stack>
     </Container>

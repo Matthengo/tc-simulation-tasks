@@ -52,7 +52,7 @@ function RegisterPage() {
             spacing={0.5}
           >
             <Typography>Já tem conta? </Typography>
-            <Button variant="text">Entre</Button>
+            <Button variant="text" onClick={ () => {history.push('/login')} }>Entre</Button>
           </Stack>
         </Stack>
     </Container>
