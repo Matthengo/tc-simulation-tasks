@@ -14,3 +14,12 @@ export const login = (userData) =>
   api.post('/login', userData)
     .then(({ data, status }) => ({ data, status }))
     .catch(({response: { data, status }}) => ({ data, status }));
+
+export const getAllUserTasks = () =>
+  api.get('/task', {
+    headers: {
+      Authorization: localStorage.getItem('token')
+    }
+  })
+  .then(({ data, status }) => ({ data, status }))
+  .catch(({response: { data, status }}) => ({ data, status }));
