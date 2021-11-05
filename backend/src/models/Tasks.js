@@ -22,12 +22,13 @@ const getTaskById = (id) => {
 
 const updateTask = (taskData) => {
   const date = new Date();
-  const { id, taskName } = taskData;
+  const { id, taskName, status } = taskData;
   return connection().then((db) => db.collection('tasks').updateOne(
     { _id:  ObjectId(id)},
     {
       $set: {
         taskName,
+        status,
         updatedAt: date,
       },
     },
@@ -40,9 +41,14 @@ const deleteTask = (id) =>
       { _id: ObjectId(id) },
     ));
 
+const getAllUserTasks = (userId) =>
+  connection()
+    .then((db) => db.collection('tasks').find({ userId: ObjectId(userId) }).toArray());
+  
 module.exports = {
   createTask,
   getTaskById,
   updateTask,
   deleteTask,
+  getAllUserTasks,
 }

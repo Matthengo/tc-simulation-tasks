@@ -10,6 +10,7 @@ const router = express.Router();
 
 router
   .post('/', JWTValidation, taskControllers.createTask)
+  .get('/', JWTValidation, taskControllers.getAllUserTasks)
   .put('/:id', JWTValidation, checkUserAuthorization, taskControllers.updateTask)
   .delete('/:id', JWTValidation, checkUserAuthorization, taskControllers.deleteTask);
 

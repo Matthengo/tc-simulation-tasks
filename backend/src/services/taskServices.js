@@ -24,8 +24,14 @@ const deleteTask = async (id) => {
   await Tasks.deleteTask(id);
 }
 
+const getAllUserTasks = async (userId) => {
+  const allTasks = await Tasks.getAllUserTasks(userId);
+  return allTasks
+}
+
 module.exports = {
   createTask,
   updateTask,
   deleteTask,
+  getAllUserTasks,
 }
